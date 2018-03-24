@@ -39,3 +39,4 @@ C:\Users\stahi\Desktop\HackITAll\HackITAll\bin\System.Web.WebPages.Razor.xml
 C:\Users\stahi\Desktop\HackITAll\HackITAll\obj\Debug\HackITAll.csproj.CoreCompileInputs.cache
 C:\Users\stahi\Desktop\HackITAll\HackITAll\obj\Debug\HackITAll.dll
 C:\Users\stahi\Desktop\HackITAll\HackITAll\obj\Debug\HackITAll.pdb
+C:\Users\stahi\Desktop\HackITAll\HackITAll\obj\Debug\HackITAll.csprojResolveAssemblyReference.cache

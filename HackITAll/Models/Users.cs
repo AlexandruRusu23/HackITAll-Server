@@ -25,12 +25,14 @@ namespace HackITAll.Models
         public string Email { get; set; }
 
         [Required]
-        public System.Int64 Latitude { get; set; }
+        public double? Latitude { get; set; }
         [Required]
-        public System.Int64 Longitude { get; set; }
+        public double? Longitude { get; set; }
 
-        [Required]
         public string Role { get; set; }
+
+        public bool ValidatedUser { get; set; }
+
 
 
         [HiddenInput, NotMapped]
