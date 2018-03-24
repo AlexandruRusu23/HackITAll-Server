@@ -1,0 +1,41 @@
+﻿@model HackITAll.Models.Contact
+
+
+@{
+    ViewBag.Title = "Contact";
+}
+
+<h2 class="text-center style1">CONTACT</h2>
+<br />
+
+<div class="row">
+    <div class="col-sm-5">
+        <p>Contact us and we'll get back to you within 24 hours.</p>
+        <p><span class="glyphicon glyphicon-map-marker"></span> Bucharest, RO</p>
+        <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
+        <p><span class="glyphicon glyphicon-envelope"></span> trololo@something.com</p>
+    </div>
+
+    <div class="col-sm-7">
+        @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+        {
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Name", autocomplete = "off" } })
+                </div>
+                <div class="col-sm-6 form-group">
+                    @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email", autocomplete = "off" } })
+                </div>
+            </div>
+
+                @Html.TextAreaFor(x => x.Comment, new { @class = "form-control", placeholder = "Comment", rows = 5, autocomplete = "off" })
+                <br />
+
+                <div class="row">
+                    <div class="col-sm-12 form-group">
+                        <input type="submit" value="Submit" />
+                    </div>
+                </div>
+        }
+    </div>
+</div>

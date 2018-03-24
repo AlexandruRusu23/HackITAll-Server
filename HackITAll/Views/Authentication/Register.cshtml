@@ -1,0 +1,42 @@
+﻿@model HackITAll.Models.Users
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<div id="myHidden">
+    <h2 class="text-center style1">Register</h2>
+    <br />
+
+    <div class="col-sm-12">
+        @using (Html.BeginForm("Register", "Authentication", FormMethod.Post))
+        {
+            <div class="row">
+                <div class="center">
+                    @Html.EditorFor(x => x.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "Username*", autocomplete = "off" } })
+                </div>
+            </div>
+            <div class="row">
+                <div class="center">
+                    @Html.PasswordFor(x => x.Password, new { @class = "form-control text-box single-line", placeholder = "Password*", autocomplete = "off" })
+                </div>
+            </div>
+          
+            <div class="row">
+                <div class="center">
+                    @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control text-box single-line", placeholder = "E-mail", autocomplete = "off" } })
+                </div>
+            </div>
+         
+            <br />
+            <div class="row">
+                <div class="col-sm-11 form-group">
+                    <div class="centerbutton">
+                        <input type="submit" value="Register" /><br />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

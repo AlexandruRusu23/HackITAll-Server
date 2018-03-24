@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    @*<link rel="shortcut icon" href="~/Content/Images/header.png" />*@
+    <title>HackITAll</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/Scripts/jquery-2.2.4.min.js"></script>
+    <script src="~/Scripts/jquery-2.2.4.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+    @if (!CurrentUser.Identity.IsAuthenticated)
+    {
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/Home/Index">Logo</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#Index"><strong>Home</strong></a></li>
+                        <li><a href="#AboutUs"><strong>About us</strong></a></li>
+                        <li><a href="#Contact"><strong>Contact</strong></a></li>
+                        <li><a href="#SignIn"><strong>Sign In</strong></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    }
+    else
+    {
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/Home/Index">Logo</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="myNavbar">
+
+                    <div class="row">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="usernavbar">
+                                <div class="myMargin">
+                                    <strong>
+                                        <span id="myUserName">@CurrentUser.Name</span>
+                                        <span> / </span>
+                                        @Html.ActionLink("Account", "Update", "Authentication", new { id = CurrentUser.UserId }, new { @class = "underline" })
+                                        <span> / </span>
+                                        @Html.ActionLink("Sign Out", "SignOut", "Authentication", new { @class = "underline" }, null)
+                                    </strong>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="row">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#Index"><strong>Home</strong></a></li>
+                            <li><a href="#AboutUs"><strong>About us</strong></a></li>
+                            <li><a href="#Contact"><strong>Contact</strong></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+            <br /><br />
+    }
+
+    @RenderBody()
+
+</body>
+</html>
+
+<script src="~/Scripts/App/Layout.js"></script>
