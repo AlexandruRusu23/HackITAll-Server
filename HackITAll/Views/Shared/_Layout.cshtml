@@ -29,8 +29,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/Home/Index">Logo</a>
+
+
+                 <img href="/Home/Index" class="navbar-brand" src="~/Content/Images/groceries.png" id="LogoImage" /> 
                 </div>
+
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#Index"><strong>Home</strong></a></li>
@@ -52,7 +55,6 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/Home/Index">Logo</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="myNavbar">
@@ -64,7 +66,7 @@
                                     <strong>
                                         <span id="myUserName">@CurrentUser.Name</span>
                                         <span> / </span>
-                                        @Html.ActionLink("Account", "Update", "Authentication", new { id = CurrentUser.UserId }, new { @class = "underline" })
+                                        @Html.ActionLink("User Area", "Update", "Authentication", new { id = CurrentUser.UserId }, new { @class = "underline" })
                                         <span> / </span>
                                         @Html.ActionLink("Sign Out", "SignOut", "Authentication", new { @class = "underline" }, null)
                                     </strong>
@@ -73,6 +75,9 @@
                         </ul>
                     </div>
 
+
+                    <img href="/Home/Index" class="navbar-brand" src="~/Content/Images/groceries.png" id="authLogoImg" />
+                    <br />
                     <div class="row">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#Index"><strong>Home</strong></a></li>

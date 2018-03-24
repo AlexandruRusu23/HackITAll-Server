@@ -123,11 +123,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\AdminSite.css" />
+    <Content Include="Content\BAdminPages\bootstrap.min.css" />
+    <Content Include="Content\BAdminPages\bootstrap.min.js" />
+    <Content Include="Content\BAdminPages\font-awesome.css" />
+    <Content Include="Content\BAdminPages\font-awesome.min.css" />
+    <Content Include="Content\BAdminPages\jquery.min.js" />
+    <Content Include="Content\BAdminPages\metisMenu.min.css" />
+    <Content Include="Content\BAdminPages\metisMenu.min.js" />
+    <Content Include="Content\BAdminPages\sb-admin-2.css" />
+    <Content Include="Content\BAdminPages\sb-admin-2.js" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\Images\foodImg.jpg" />
+    <Content Include="Content\Images\groceries.png" />
     <Content Include="Content\Images\image01.jpg" />
     <Content Include="Content\Images\image02.jpg" />
     <Content Include="Content\Images\image03.jpg" />
@@ -135,6 +146,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\BAdminPages\font-awesome.css.map" />
+    <Content Include="App_Code\GlyphIcon.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="packages.config" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -184,6 +198,7 @@
     <Compile Include="Bootstrap Html Helpers\HelperMethods.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AppController.cs" />
+    <Compile Include="Controllers\StoresController.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Startup.cs" />
@@ -199,6 +214,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Stores\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

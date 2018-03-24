@@ -1,0 +1,17 @@
+﻿.blackColor{
+    color:black;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.imageSize{
+    height:120px; 
+    width: 210px;
+}
+
+.addmargin{
+    margin-right: 10%;
+    padding-bottom: 15px;
+    color:black;
+}
+

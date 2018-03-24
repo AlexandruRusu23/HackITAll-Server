@@ -106,8 +106,18 @@ namespace HackITAll.Controllers
         [HttpPost]
         public ActionResult Register(Users model)
         {
+
+            var isValid = true;
+            model.ValidatedUser = false;
+
+            if (!ModelState.IsValid)
+            {
+                isValid = false;
+            }
             using (var context = new DBContexts())
             {
+
+                model.Role = "client";
                 var userList = context.Users.ToList();
                 bool dublura = false;
 
@@ -119,14 +129,18 @@ namespace HackITAll.Controllers
                     }
                 }
 
-                if (dublura == false)
+                if (dublura == false && isValid == true)
                 {
                     context.Users.Add(model);
                     context.SaveChanges();
                 }
-                else
+                else if (dublura == true)
                 {
                     TempData["msg"] = "<script>alert('Acest Username este deja folosit! ');</script>";
+                }
+                else if (isValid == false)
+                {
+                    TempData["msg"] = "<script>alert('Toate campurile sunt obligatorii !! ');</script>";
                 }
             }
 
