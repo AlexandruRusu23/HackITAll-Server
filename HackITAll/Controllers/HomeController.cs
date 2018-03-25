@@ -7,9 +7,10 @@ using System.Web.Mvc;
 
 namespace HackITAll.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
-        [AllowAnonymous]
+
         public ActionResult Index()
         {
             return View();
@@ -24,12 +25,23 @@ namespace HackITAll.Controllers
         [HttpPost]
         public ActionResult Contact(Contact model)
         {
-            using (var context = new DBContexts())
+
+            if (ModelState.IsValid)
             {
-                context.Contact.Add(model);
-                context.SaveChanges();
+                using (var context = new DBContexts())
+                {
+                    context.Contact.Add(model);
+                    context.SaveChanges();
+                    TempData["msg"] = "<script>alert(' Mesajul a fost trimis cu succes, Va multumim ! ');</script>";
+                    return RedirectToAction("Index");
+                }
             }
-            return RedirectToAction("Index");
+            else
+            {
+                TempData["msg"] = "<script>alert('Ne pare rau dar toate campurile sunt obligatorii pentru formularul de contact ! ');</script>";
+                return RedirectToAction("Index");
+            }
+
         }
 
         public ActionResult AboutUs()

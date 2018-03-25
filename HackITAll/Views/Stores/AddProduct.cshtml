@@ -1,0 +1,72 @@
+﻿@model HackITAll.Models.Product
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_AccLayout.cshtml";
+}
+
+
+@Html.Raw(TempData["msg"])
+
+<div class="container-fluid">
+    <br /><br /><br />
+    <h2 class="text-center style1">Add New Product</h2>
+    <br />
+
+    <div class="col-sm-12">
+        @using (Html.BeginForm("AddProduct", "Stores", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+
+
+            <div class="row">
+                <div class="center">
+                    @Html.HiddenFor(x => x.UserId, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="center">
+                    @Html.LabelFor(x => x.Name, "Name")
+                    @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="center">
+                    @Html.LabelFor(x => x.Price, "Price")
+                    @Html.EditorFor(x => x.Price, new { htmlAttributes = new { @class = "form-control", placeholder = "RON", autocomplete = "off" } })
+                </div>
+            </div>
+            <div class="row">
+                <div class="center">
+                    @Html.LabelFor(x => x.Quantity, "Quantity")<br />
+                    @Html.EditorFor(x => x.Quantity, new { htmlAttributes = new { @class = "form-control", placeholder = "g (grame)", autocomplete = "off" } })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="center">
+                    @Html.LabelFor(x => x.Description, "Description")<br />
+                    @Html.TextAreaFor(x => x.Description, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="center">
+                    @Html.LabelFor(x => x.Picture, "Add image")<br />
+                    <input type="file" id="image1" name="image1" />
+                </div>
+            </div>
+
+            <br />
+            <div class="row">
+                <div class="center">
+                    <div class="left">
+                        <input type="submit" value="Save" />
+                        <a href="/Bicycle/Index" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

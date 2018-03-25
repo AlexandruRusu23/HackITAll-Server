@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "UserArea";
+    Layout = "~/Views/Shared/_AccLayout.cshtml";
+}
+
+
+
+<div class="container-fluid">
+    <br /><br /><br />
+    <h2 class="text-center style1">User Area</h2>
+    <br />
+
+    <div class="col-sm-12">
+        <button class="btn" onclick="location.href='@Url.Action("Update", "Authentication", new { id = CurrentUser.UserId })';return false;">Update account info</button>
+        <br /><br />
+        <button class="btn" onclick="location.href='@Url.Action("AddProduct", "Stores",  new { id = CurrentUser.UserId })';return false;">Add product</button>
+
+    </div>
+</div>

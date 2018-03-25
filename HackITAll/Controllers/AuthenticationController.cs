@@ -32,58 +32,65 @@ namespace HackITAll.Controllers
         {
             Users findAdmin = new Users();
 
-            using (var context = new DBContexts())
-            {
-                findAdmin = context.Users.Where(x => x.UserName == "admin" && x.Password == "admin" && x.Role == "admin").FirstOrDefault();
-            }
-            if (model.UserName == findAdmin.UserName && model.Password == findAdmin.Password)
-            {
-                try
+            if(!String.IsNullOrEmpty(model.UserName) && !String.IsNullOrEmpty(model.Password))
+            { 
+                using (var context = new DBContexts())
                 {
-                    var identity = new ClaimsIdentity(new[] {
+                    findAdmin = context.Users.Where(x => x.UserName == "admin" && x.Password == "admin" && x.Role == "admin").FirstOrDefault();
+                }
+                if (model.UserName == findAdmin.UserName && model.Password == findAdmin.Password)
+                {
+                    try
+                    {
+                        var identity = new ClaimsIdentity(new[] {
                     new Claim(ClaimTypes.Name, findAdmin.UserName),
                     new Claim(ClaimTypes.Role, findAdmin.Role),
                     new Claim(ClaimTypes.UserData, findAdmin.UserId.ToString()),
                     }, "ApplicationCookie");
 
-                    var ctx = Request.GetOwinContext();
-                    var authManager = ctx.Authentication;
+                        var ctx = Request.GetOwinContext();
+                        var authManager = ctx.Authentication;
 
-                    authManager.SignIn(identity);
+                        authManager.SignIn(identity);
+                        TempData["msg"] = "<script>alert('Bine ati venit admin !');</script>";
 
-                    return Redirect(GetRedirectUrl(model.ReturnUrl));
+                        return Redirect(GetRedirectUrl(model.ReturnUrl));
+                    }
+                    catch (Exception) { }
                 }
-                catch (Exception) { }
-            }
-            else
-            {
-                using (var context = new DBContexts())
+                else
                 {
-                    var findUser = context.Users.ToList().Where(x => x.UserName == model.UserName && x.Password == model.Password).FirstOrDefault();
-                    if (findUser != null)
+                    using (var context = new DBContexts())
                     {
-                        try
+                        var findUser = context.Users.ToList().Where(x => x.UserName == model.UserName && x.Password == model.Password).FirstOrDefault();
+                        if (findUser != null)
                         {
-                            var identity = new ClaimsIdentity(new[] {
+                            try
+                            {
+                                var identity = new ClaimsIdentity(new[] {
                             new Claim(ClaimTypes.Name, model.UserName),
                             new Claim(ClaimTypes.Role, "user"),
                             new Claim(ClaimTypes.UserData, findUser.UserId.ToString())
                             }, "ApplicationCookie");
 
-                            var ctx = Request.GetOwinContext();
-                            var authManager = ctx.Authentication;
+                                var ctx = Request.GetOwinContext();
+                                var authManager = ctx.Authentication;
 
-                            authManager.SignIn(identity);
+                                authManager.SignIn(identity);
+                                TempData["msg"] = "<script>alert('Bine ati venit !');</script>";
 
-                            return Redirect(GetRedirectUrl(model.ReturnUrl));
+                                return Redirect(GetRedirectUrl(model.ReturnUrl));
+                            }
+                            catch (Exception) { }
                         }
-                        catch (Exception) { }
                     }
                 }
             }
+            else
+            {
+                TempData["msg"] = "<script>alert('Ne pare rau dar campurile sunt invalide !');</script>";
+            }
 
-            //auth fail
-            ModelState.AddModelError("", "Invalid username or password");
             return RedirectToAction("Index", "Home");
         }
 
@@ -133,14 +140,16 @@ namespace HackITAll.Controllers
                 {
                     context.Users.Add(model);
                     context.SaveChanges();
+                    TempData["msg"] = "<script>alert('Contul dumneavoastra a fost inregistrat cu succes. Va rugam asteptati ca acesta sa fie validat de catre admin pentru a putea adauga produse ');</script>";
+
                 }
                 else if (dublura == true)
                 {
-                    TempData["msg"] = "<script>alert('Acest Username este deja folosit! ');</script>";
+                    TempData["msg"] = "<script>alert('Ne pare rau dar acest username este deja folosit! ');</script>";
                 }
                 else if (isValid == false)
                 {
-                    TempData["msg"] = "<script>alert('Toate campurile sunt obligatorii !! ');</script>";
+                    TempData["msg"] = "<script>alert('Ne pare rau dar pentru inregistrare toate campurile sunt obligatorii !! ');</script>";
                 }
             }
 
@@ -206,6 +215,13 @@ namespace HackITAll.Controllers
                 }
             }
             return RedirectToAction("Index", "Home");
+        }
+
+
+        [HttpGet]
+        public ActionResult UserArea ()
+        {
+            return View();
         }
     }
 }

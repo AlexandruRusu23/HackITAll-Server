@@ -137,6 +137,12 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\Images\carusel_1.jpg" />
+    <Content Include="Content\Images\carusel_2.jpg" />
+    <Content Include="Content\Images\carusel_3.jpg" />
+    <Content Include="Content\Images\carusel_4.jpg" />
+    <Content Include="Content\Images\carusel_5.jpg" />
+    <Content Include="Content\Images\carusel_6.jpg" />
     <Content Include="Content\Images\foodImg.jpg" />
     <Content Include="Content\Images\groceries.png" />
     <Content Include="Content\Images\image01.jpg" />
@@ -180,6 +186,11 @@
     <Content Include="Scripts\jquery-2.2.4.min.map" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Stores\GetAllForValidation.cshtml" />
+    <Content Include="Views\Shared\_AccLayout.cshtml" />
+    <Content Include="Views\Authentication\UserArea.cshtml" />
+    <Content Include="Views\Stores\NotValidUser.cshtml" />
+    <Content Include="Views\Stores\AddProduct.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -214,7 +225,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Stores\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
