@@ -66,7 +66,7 @@
                                     <strong>
                                         <span id="myUserName">@CurrentUser.Name</span>
                                         <span> / </span>
-                                        @Html.ActionLink("User Area", "Update", "Authentication", new { id = CurrentUser.UserId }, new { @class = "underline" })
+                                        @Html.ActionLink("User Area", "UserArea", "Authentication")
                                         <span> / </span>
                                         @Html.ActionLink("Sign Out", "SignOut", "Authentication", new { @class = "underline" }, null)
                                     </strong>

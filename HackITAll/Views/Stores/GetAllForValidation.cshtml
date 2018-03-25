@@ -1,0 +1,55 @@
+﻿@model List<HackITAll.Models.Users>
+@{
+    ViewBag.Title = "GetAllForValidation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div id="page-wrapper">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Storage Validation</h1>
+        </div>
+    </div>
+
+
+
+
+    <div style="overflow-x:auto;">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Store name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Pdf Info</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var store in Model)
+            {
+                    <tr>
+
+                        <td>@store.UserName</td>
+                        <td>@store.Email</td>
+                        <td></td>
+                        <td><a href="@Url.Action("ValidateStore", "Stores", new { id = store.UserId})">Validate Store</a></td>
+
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <br />
+    <a href="/Admin/Index" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+    <br /><br /><br />
+
+</div>
+
+
+
+

@@ -7,7 +7,7 @@
 <div id="myHidden">
     <h2 class="text-center style1">Register</h2>
     <br />
-
+    <p class="text-center style1">(Dupa inregistrare va trebui sa asteptati admin-ul sa va valideze accountul pentru a putea incarca produse !)</p>
     <div class="col-sm-12">
         @using (Html.BeginForm("Register", "Authentication", FormMethod.Post))
         {
@@ -41,7 +41,7 @@
             </div>
 
             <br />
-            <h3>Please select on map where we can find you</h3>
+            <h3>Va rugam bifati pe harta locul unde va putem gasi</h3>
 
             <div id="googleMap"></div>
 
@@ -50,7 +50,7 @@
             <div class="row">
                 <div class="col-sm-11 form-group">
                     <div class="centerbutton">
-                        <input type="submit" value="Register" /><br />
+                        <input class="btn" type="submit" value="Register" /><br />
                     </div>
                 </div>
             </div>
